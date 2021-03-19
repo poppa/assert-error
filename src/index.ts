@@ -1,22 +1,44 @@
-import type { ClassType, Maybe } from './types'
-import { isFunction, isObject } from './helpers'
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type Class<T = any> = new (...args: any[]) => T
+export type Maybe<T> = T | undefined
 
 /**
  * Assert that `e` is an error of type `T`.
+ *
+ * @param error - The error to assert to be of type `T`
+ * @param errorClass - The class to test that `e` is an instance of. Defaults
+ *  to `Error`
+ * @throws An `Error` is thrown if `e` is not an instance of `T`
+ * @seealso {@link assumeError()}
  */
-export function assertError<
-  T extends Error = Error,
-  C extends Maybe<Error> = undefined
->(
-  e: unknown,
-  errorClass?: C extends undefined ? undefined : ClassType<C>
-): asserts e is C extends undefined ? T : C {
+export function assertError<T extends Error = Error>(
+  error: unknown,
+  errorClass?: Maybe<Class<T>>
+): asserts error is T {
   const checkClass = errorClass ?? Error
 
-  if (
-    (isObject(checkClass) || isFunction(checkClass)) &&
-    !(e instanceof checkClass)
-  ) {
-    throw new Error(`Object e of type ${typeof e} is not an Error`)
+  if (!(error instanceof checkClass)) {
+    throw new Error(
+      `Argument \`error\` of type ${typeof error} is not an Error`
+    )
   }
+}
+
+/**
+ * Assumes that `e` is an instance of `T`.
+ *
+ * This is just a type-guard and no runtime check is made to assert that
+ * `e` actually is an instance of `T`.
+ *
+ * @param e - The error to assert to be of type `T`
+ * @param errorClass - The class to test that `e` is an instance of. Defaults
+ *  to `Error`
+ * @seealso {@link assertError()}
+ */
+export function assumeError<T extends Error = Error>(
+  e: unknown,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  errorClass?: Maybe<Class<T>>
+): asserts e is T {
+  // this does nothing
 }
