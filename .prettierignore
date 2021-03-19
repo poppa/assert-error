@@ -1,0 +1,5 @@
+dist
+docker-dist
+node_modules
+*.d.ts
+.next

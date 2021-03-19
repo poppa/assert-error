@@ -1,0 +1,6 @@
+dist
+docker-dist
+node_modules
+*.d.ts
+.eslintrc.js
+.next
