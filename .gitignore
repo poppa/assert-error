@@ -1,6 +1,7 @@
 node_modules
 lib
 .DS_Store
+.npmrc
 
 *.log
 npm-debug.log*
