@@ -7,7 +7,8 @@
     "test": "jest",
     "build": "tsc -p tsconfig.build.json",
     "dev": "tsc -w -p tsconfig.build.json",
-    "lint": "eslint  --ext .ts --fix src"
+    "lint": "eslint  --ext .ts --fix src",
+    "setup": "yarn && husky install"
   },
   "repository": {
     "type": "git",
@@ -15,9 +16,10 @@
   },
   "keywords": [
     "assert",
+    "error",
     "typescript",
     "javascript",
-    "node"
+    "error-handling"
   ],
   "author": "Pontus Östlund <https://github.com/poppa>",
   "license": "MIT",
@@ -41,16 +43,10 @@
     "ts-jest": "^26.5.4",
     "typescript": "^4.2.3"
   },
-  "dependencies": {},
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "prettier --write",
-      "eslint --ext .ts --fix"
+      "prettier --write src",
+      "eslint --fix src"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsc --noEmit && lint-staged && yarn test"
-    }
   }
 }
