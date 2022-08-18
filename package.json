@@ -1,6 +1,6 @@
 {
   "name": "@poppa/assert-error",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Assert or type assert that error is an Error",
   "main": "lib/index.js",
   "scripts": {
