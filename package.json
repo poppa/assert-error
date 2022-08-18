@@ -1,14 +1,16 @@
 {
-  "name": "@poppa/assert-error",
+  "name": "@poppanator/assert-error",
   "version": "1.0.1",
   "description": "Assert or type assert that error is an Error",
   "main": "lib/index.js",
+  "private": false,
   "scripts": {
     "test": "jest",
     "build": "tsc -p tsconfig.build.json",
     "dev": "tsc -w -p tsconfig.build.json",
     "lint": "eslint  --ext .ts --fix src",
-    "setup": "yarn && husky install"
+    "setup": "yarn && husky install",
+    "pub": "yarn lint && yarn build && yarn test && npm publish"
   },
   "files": [
     "lib"
