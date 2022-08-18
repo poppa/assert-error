@@ -6,6 +6,11 @@ error.
 
 This package provides two functions to make this error handling easier.
 
+## Install
+
+The usual `npm install @poppanator/assert-error`,
+`yarn add @poppanator/assert-error`, etc...
+
 ## Example
 
 Ponder the following
@@ -26,7 +31,7 @@ on it.
 But using `assertError()` you can:
 
 ```ts
-import { assertError } from '@poppa/assert-error'
+import { assertError } from '@poppanator/assert-error'
 
 try {
   // Do some funky chimichurri
@@ -67,7 +72,7 @@ throwing an error.
 **NOTE!** `assumeError()` has no runtime-effect. It does nothing.
 
 ```ts
-import { assumeError } from '@poppa/assert-error'
+import { assumeError } from '@poppanator/assert-error'
 
 try {
   // Do some funky gaspacho
